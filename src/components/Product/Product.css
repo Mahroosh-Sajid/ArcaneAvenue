@@ -1,0 +1,30 @@
+.product-card {
+    max-width: 200px;
+    border: 1px solid var(--red);
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--headin-font);
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.product-title {
+    font-weight: 600;
+    color: var(--black);
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--red);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
