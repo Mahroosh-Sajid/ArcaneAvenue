@@ -19,15 +19,15 @@ export default function SectionDivider({text, link}) {
     }
     return (
         <div className="section-divider">
-            <div className="divider-col test">
+            <div className="divider-col ">
                 <div className="div-line" />
             </div>
-            <div className="divider-col-middle test">
+            <div className="divider-col-middle">
                 <img src={Star} />
                 <h2>{text}</h2>
                 <img src={Star} />
             </div>
-            <div className="divider-col test">
+            <div className="divider-col">
                 {link ? drawWithLink() : drawLine() }
             </div>
         </div>

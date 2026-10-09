@@ -1,6 +1,8 @@
 import './Auth.css'
 import { useState } from 'react'
 import AuthBanner from '../../assets/Home Banner.png'
+import SectionDivider from "../../components/SectionDivider/SectionDivider"
+import Star from "../../assets/Star.png";
 export default function Auth() {
     const [selectedForm, setSelectedForm] = useState("register")
     function swapForms() {
@@ -11,8 +13,8 @@ export default function Auth() {
         }
     }
     return (
-        <div className="auth-wrapper test">
-            <div className="auth-image-col test">
+        <div className="auth-wrapper">
+            <div className="auth-image-col">
                 <img src={AuthBanner} />
             </div>
             {selectedForm == "register" ? <RegisterForm toggleForm={swapForms} /> : <LoginForm toggleForm={swapForms} />}
@@ -20,7 +22,7 @@ export default function Auth() {
     )
 }
 
-function RegisterForm(toggleForm) {
+function RegisterForm({ toggleForm }) {
     return (
         <form className="auth-form">
             register
@@ -32,10 +34,33 @@ function RegisterForm(toggleForm) {
     )
 }
 
-function LoginForm(toggleForm) {
+function LoginForm({ toggleForm }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleSubmit(e) {
+        e.prventDefault();
+        alert("form submitted");
+    }
+
     return (
         <form className="auth-form">
-            login
+            <div className="star-row">
+                <img className="auth-star" src={Star} />
+            </div>
+            <SectionDivider text="Login" />
+
+            <label className="form-input">
+                <p>Email: </p>
+                <input type="email" placeholder='email@gmail.com' required value={email} onChange={(e) => setEmail(e.target.value)} />
+            </label>
+            <label className="form-input">
+                <p>Password: </p>
+                <input type="password" placeholder='Enter Password' required value={password} onChange={(e) => setPassword(e.target.value)} />
+            </label>
+
+            <button type="submit" className="auth-btn"> Login</button>
+
             <div className="form-actions">
                 <p>Don,t have an account?</p>
                 <button type="button" onClick={toggleForm} className="form-toggle-btn">Sign Up</button>
